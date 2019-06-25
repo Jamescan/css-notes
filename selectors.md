@@ -40,8 +40,28 @@ Element selectors target elements on a page. Most commonly these will be HTML el
 p {color: white;}
 ```
 
+### The Universal Selector: `*`
+Introduced in CSS2, the universal selector matches any and all elements of the document. It has specificity `0-0-0` and may cause unintended consequences.
 
+#### Example
+```css
+/* Apply red font-color to all elements in the document */
+* {color: red;}
+```
 
+### Grouped Selectors: `,`
+While not a type *per se*, all selectors may be grouped together into one rule to keep stylesheets short and maintainable. Separating selectors with a comma groups them together, and applies all declarations to each.
+
+#### Example
+The following are logically equivalent:
+```css
+/* Ungrouped version */
+h2 {color: red;}
+h3 {color: red;}
+
+/* Grouped version */
+h2, h3 {color: red}
+```
 
 ## Acknowledgements
 
