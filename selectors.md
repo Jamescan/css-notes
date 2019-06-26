@@ -1,4 +1,19 @@
-# Selectors
+# Selectors <!-- omit in TOC -->
+
+- [Introduction and Prerequisites](#Introduction-and-Prerequisites)
+  - [Terminology: Rules, Selectors, Declarations.](#Terminology-Rules-Selectors-Declarations)
+- [Types of Selectors](#Types-of-Selectors)
+  - [Element Selectors](#Element-Selectors)
+    - [Example](#Example)
+  - [The Universal Selector: `*`](#The-Universal-Selector-)
+    - [Example](#Example-1)
+  - [Grouped Selectors: `,`](#Grouped-Selectors-)
+    - [Example](#Example-2)
+  - [Class (.) and ID (#) Selectors](#Class--and-ID--Selectors)
+    - [Example - Basic Class and ID Selector](#Example---Basic-Class-and-ID-Selector)
+    - [Example - Combining Element and Class Selectors](#Example---Combining-Element-and-Class-Selectors)
+    - [Example - Selecting Elements with Multiple Class Names](#Example---Selecting-Elements-with-Multiple-Class-Names)
+- [Acknowledgements](#Acknowledgements)
 
 ## Introduction and Prerequisites
 Selectors allow CSS to efficiently target sets of elements on the page, as opposed to tediously applying inline styles everywhere, e.g. 
@@ -62,6 +77,49 @@ h3 {color: red;}
 /* Grouped version */
 h2, h3 {color: red}
 ```
+
+### Class (.) and ID (#) Selectors
+Class Selectors associate styles with elements that are assigned a specific `class` attribute. This allows styling of content independent of element type. To define rules for class selectors, put a period before the class name in the stylesheet.
+
+Recall that elements can have multiple class attributes. Chaining two class selectors together will match elements with both class names, regardless of their order. 
+
+ID selectors are similar to class selectors - they match elements containing a specific `id` attribute. (Recall that in any given document `id` attributes *should* be unique to one element.) Some differences though are:
+* A selector can't match multiple IDs, because any HTML element can have one and only one ID (i.e. `<p id="foo bar"><p>` is not valid)
+* ID selectors have greater specificity than class selectors
+
+#### Example - Basic Class and ID Selector
+```css
+.specialText {color: red}
+#uniqueText {color: blue}
+```
+
+```html
+<p id="uniqueText">This text is colored blue</p>
+<span class="specialText">This text is colored red</span>
+<p>This text is not styled with the above rules</p> 
+```
+
+#### Example - Combining Element and Class Selectors
+```css
+p.specialText {color: red}
+```
+
+```html
+<p class="specialText">This text is colored red</p>
+<span class="specialText">This text is _still_ not colored red</span> 
+```
+
+#### Example - Selecting Elements with Multiple Class Names
+```css
+.specialText.warning {color: red}
+```
+
+```html
+<p class="specialText warning">This text is colored red</p>
+<p class="warning specialText anotherClass">Also red!</p>
+<span class="specialText">This text is not colored red</span> 
+```
+
 
 ## Acknowledgements
 
