@@ -13,6 +13,10 @@
     - [Example - Basic Class and ID Selector](#Example---Basic-Class-and-ID-Selector)
     - [Example - Combining Element and Class Selectors](#Example---Combining-Element-and-Class-Selectors)
     - [Example - Selecting Elements with Multiple Class Names](#Example---Selecting-Elements-with-Multiple-Class-Names)
+  - [Attribute Selectors: []](#Attribute-Selectors-)
+    - [Simple Attribute Selectors](#Simple-Attribute-Selectors)
+    - [Exact Attribute Value Selectors](#Exact-Attribute-Value-Selectors)
+    - [Partial Attribute Value Selectors](#Partial-Attribute-Value-Selectors)
 - [Acknowledgements](#Acknowledgements)
 
 ## Introduction and Prerequisites
@@ -119,6 +123,42 @@ p.specialText {color: red}
 <p class="warning specialText anotherClass">Also red!</p>
 <span class="specialText">This text is not colored red</span> 
 ```
+
+### Attribute Selectors: []
+Attribute Selectors allow us to style elements based on attributes (and potentially their value) other than `class` and `id`, which we've already covered. There are four main types.
+
+Attribue selectors are especially useful in XML documents, but use-cases exist in HTML documents too.
+
+#### Simple Attribute Selectors
+Simple attribute selectors allow us to select elements that have a certain attribute, regardless of its value. The selector is formed by the element name and the name of the attribute surrounded by square brackets. Multiple attributes may be included in the selector.
+
+```css
+a[href][title] {color: brown}
+```
+
+```html
+<a>Not colored brown</a>
+<a href="http://www.google.com">Not brown</a>
+<a href="foo" title="title1">Brown!</a>
+<a href="bar" title="title2">Also brown!</a> 
+```
+
+#### Exact Attribute Value Selectors
+Exact Attribute Selectors allow us to select elements containing an attribute of a certain value. They may be chained as well!
+
+```css
+a[href="foo.org"][title="someTitle"] {color: brown}
+```
+
+```html
+<a>Not colored brown</a>
+<a href="http://www.google.com">Not brown</a>
+<a href="foo.org" title="someTitle">Brown!</a>
+```
+
+#### Partial Attribute Value Selectors
+
+
 
 
 ## Acknowledgements
